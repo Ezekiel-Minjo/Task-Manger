@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>Task Manager</h1>
+            <p>Organize your day, one task at a time</p>
+        </div>
+
+        <!-- Task Input Section -->
+        <div class="task-input-section">
+            <div class="input-container">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="What needs to be done?"
+                    maxlength="100"
+                >
+                <button id="addBtn">Add Task</button>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-section">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="pending">Pending</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+        </div>
+
+        <!-- Tasks Section -->
+        <div class="tasks-section">
+            <div class="tasks-header">
+                <span class="task-count" id="taskCount">0 tasks remaining</span>
+                <button class="clear-completed" id="clearCompleted">Clear Completed</button>
+            </div>
+
+            <!-- Task List -->
+            <ul id="taskList">
+                <!-- Sample tasks for demonstration - remove these when implementing JavaScript -->
+                <li class="task-item" data-id="1">
+                    <div class="task-checkbox"></div>
+                    <span class="task-text">Learn JavaScript fundamentals</span>
+                    <div class="task-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </li>
+                <li class="task-item completed" data-id="2">
+                    <div class="task-checkbox checked"></div>
+                    <span class="task-text">Set up HTML structure</span>
+                    <div class="task-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </li>
+                <li class="task-item" data-id="3">
+                    <div class="task-checkbox"></div>
+                    <span class="task-text">Implement task filtering</span>
+                    <div class="task-actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Empty State (show when no tasks) -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">📝</div>
+                <h3>No tasks yet</h3>
+                <p>Add a task above to get started!</p>
+            </div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalTasks">3</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="pendingTasks">2</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="completedTasks">1</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="completionRate">33%</div>
+                    <div class="stat-label">Complete</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript placeholder - You'll implement your JS logic here -->
+    <script src="script.js">  
+    </script>
+</body>
+</html>
