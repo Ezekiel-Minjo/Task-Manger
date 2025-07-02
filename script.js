@@ -83,5 +83,29 @@ function getFilteredTasks() {
       return tasks.filter((task) => task.completed);
     case "pending":
       return tasks.filter((task) => !task.completed);
+    default:
+      return tasks;
   }
+}
+
+// craete individual task elements
+// create a single task DOM element
+function createTaskElement(task) {
+  const li = document.createElement("li");
+  li.className = `task-item ${task.completed ? "completed" : ""}`;
+  li.setAttribute("data-id", task.id);
+
+  li.innerHTML = `
+  <div class="task-checkbox ${
+    task.completed ? "checked" : ""
+  }" onclick="toggleTask(${task.id})">
+  </div>
+  <span class="task-text">${task.text}</span>
+  <div class="task-actions">
+    <button class="edit-btn" onclick="editTask(${task.id})">Edit</button>
+    <button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button>
+  </div>
+  `;
+
+  return li;
 }
