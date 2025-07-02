@@ -109,3 +109,29 @@ function createTaskElement(task) {
 
   return li;
 }
+
+// Add Event Listeners
+// setting up event listeners
+function initializeEventListeners() {
+  //Add task button click
+  addBtn.addEventListener("click", addTask);
+
+  //add task on enter key press
+  taskInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      addTask();
+    }
+  });
+
+  //   Filter button clicks
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      this.classList.add("active");
+      currentFilter = this.getAttribute("data-filter");
+      renderTasks();
+    });
+  });
+
+  clearCompletedBtn.addEventListener("click", clearCompletedBtn);
+}
