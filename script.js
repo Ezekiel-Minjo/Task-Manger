@@ -19,3 +19,13 @@ const totalTasks = document.getElementById("totalTasks");
 const pendingTasks = document.getElementById("pendingTasks");
 const completedTasks = document.getElementById("completedTasks");
 const CompletionRate = document.getElementById("CompletionRate");
+
+// creates a new task object
+function createTask(text) {
+  return {
+    id: taskIdCounter++,
+    text: text.trim(),
+    completed: false,
+    createdAt: new Date().toISOString(),
+  };
+}
