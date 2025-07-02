@@ -54,3 +54,34 @@ function addTask() {
 
   console.log("Task added", newTask);
 }
+
+// create render function
+//render task in the DOM
+function renderTasks() {
+  taskList.innerHTML = "";
+  const filteredTasks = getFilteredTasks();
+
+  // show empty state if no tasks
+  if (filteredTasks.length === 0) {
+    emptyState.style.display = "block";
+    return;
+  } else {
+    emptyState.style.display = "none";
+  }
+
+  // create HTML for each task
+  filteredTasks.forEach((task) => {
+    const taskElement = createTaskElement(task);
+    taskList.appendChild(taskElement);
+  });
+}
+
+// helper function to filter tasks
+function getFilteredTasks() {
+  switch (currentFilter) {
+    case "completed":
+      return tasks.filter((task) => task.completed);
+    case "pending":
+      return tasks.filter((task) => !task.completed);
+  }
+}
