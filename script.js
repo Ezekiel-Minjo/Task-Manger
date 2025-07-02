@@ -135,3 +135,15 @@ function initializeEventListeners() {
 
   clearCompletedBtn.addEventListener("click", clearCompletedBtn);
 }
+
+// Initialize your App
+function initApp() {
+  console.log("Task Manager starting....");
+  loadFromLocalStorage();
+  initializeEventListeners();
+  renderTasks();
+  updateStats();
+
+  console.log("Task Manager ready!");
+}
+document.addEventListener("DOMContentLoad", initApp);
