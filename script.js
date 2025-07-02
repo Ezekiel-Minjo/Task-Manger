@@ -29,3 +29,28 @@ function createTask(text) {
     createdAt: new Date().toISOString(),
   };
 }
+
+// adding new task
+function addTask() {
+  const text = taskInput.ValueMax.trim();
+
+  //validation
+  if (text === "") {
+    alert("Please enter a task!");
+    return;
+  }
+
+  //   create and add the task
+  const newTask = createTask(text);
+  tasks.push(newTask);
+
+  //   clear input
+  taskInput.value = "";
+
+  // update the display
+  renderTasks();
+  updateStats();
+  saveToLocalStorage();
+
+  console.log("Task added", newTask);
+}
